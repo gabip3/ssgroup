@@ -93,7 +93,13 @@ function initSite() {
 
     document.querySelectorAll('.gallery-item').forEach(btn => {
       btn.addEventListener('click', () => {
-        const list = (btn.dataset.images || btn.dataset.full || '').split(',').map(s => s.trim()).filter(Boolean);
+        let list;
+        if (btn.dataset.cat && btn.dataset.count) {
+          const base = btn.dataset.base || `assets/img/gallery/${btn.dataset.cat}/`;
+          list = Array.from({ length: +btn.dataset.count }, (_, i) => `${base}${i + 1}.jpg`);
+        } else {
+          list = (btn.dataset.images || btn.dataset.full || '').split(',').map(s => s.trim()).filter(Boolean);
+        }
         open(list, btn.dataset.title || '', 0);
       });
     });
