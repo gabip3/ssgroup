@@ -204,10 +204,19 @@
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="container">© <span id="year"></span> SS Renovations Group. All rights reserved.</div>
+    <div class="footer-areas">
+      <div class="container">
+        <span class="footer-areas-label">Areas We Serve:</span>
+        <a href="${prefix}milford.html">Milford</a><a href="${prefix}franklin.html">Franklin</a><a href="${prefix}hopkinton.html">Hopkinton</a><a href="${prefix}medway.html">Medway</a><a href="${prefix}framingham.html">Framingham</a><a href="${prefix}natick.html">Natick</a><a href="${prefix}wellesley.html">Wellesley</a><a href="${prefix}holliston.html">Holliston</a><a href="${prefix}mendon.html">Mendon</a>
+      </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <div class="container">© <span id="year"></span> SS Renovations Group. All rights reserved. &nbsp;·&nbsp; CSL #120109 &nbsp; HIC #201338 &nbsp;·&nbsp; <a href="${home}">Home</a></div>
+    </div>
+  </footer>`;
+
+  // Prefix-aware note: footerHTML string continues below with lightbox + back-to-top.
+  const footerExtra = `
 
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
@@ -226,7 +235,7 @@
   const put = (id, html) => { const el = document.getElementById(id); if (el) el.outerHTML = html; };
   put('site-header', headerHTML);
   put('site-contact', contactHTML);
-  put('site-footer', footerHTML);
+  put('site-footer', footerHTML + footerExtra);
 
   window.__componentsReady = true;
   document.dispatchEvent(new Event('components:ready'));

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gabip3.github.io/ssgroup/sitemap.xml
