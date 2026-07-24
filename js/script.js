@@ -103,6 +103,24 @@ function initSite() {
         open(list, btn.dataset.title || '', 0);
       });
     });
+    // Service-page work strips (thumbnails that open the carousel)
+    document.querySelectorAll('.gallery-strip').forEach(strip => {
+      const cat = strip.dataset.cat, count = +strip.dataset.count, title = strip.dataset.title || '';
+      if (!cat || !count) return;
+      const base = strip.dataset.base || `assets/img/gallery/${cat}/`;
+      const list = Array.from({ length: count }, (_, i) => `${base}${i + 1}.jpg`);
+      list.forEach((src, i) => {
+        const b = document.createElement('button');
+        b.className = 'strip-thumb';
+        b.setAttribute('aria-label', `${title} photo ${i + 1}`);
+        const im = document.createElement('img');
+        im.src = src; im.loading = 'lazy'; im.alt = `${title} project ${i + 1}`;
+        b.appendChild(im);
+        b.addEventListener('click', () => open(list, title, i));
+        strip.appendChild(b);
+      });
+    });
+
     const prevBtn = document.getElementById('lbPrev');
     const nextBtn = document.getElementById('lbNext');
     if (prevBtn) prevBtn.addEventListener('click', e => { e.stopPropagation(); step(-1); });
