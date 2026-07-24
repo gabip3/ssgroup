@@ -36,6 +36,7 @@
 
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
+      <a href="#" class="header-ig" aria-label="Instagram"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
       <a href="${home}" class="logo">
         <img src="${prefix}assets/img/logo/logo-header.png" alt="SS Renovations Group">
       </a>
