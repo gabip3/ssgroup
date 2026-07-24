@@ -432,7 +432,10 @@ button{font-family:inherit;cursor:pointer;}
 }
 @media (max-width:640px){
   .section{padding:64px 0;}
-  .gallery-item{flex:0 1 calc(50% - 8px);max-width:calc(50% - 8px);}
+  .gallery-grid{gap:12px;}
+  .gallery-item{flex:0 1 calc(50% - 6px);max-width:calc(50% - 6px);}
+  .glabel{font-size:15px;letter-spacing:1px;}
+  .glabel em{font-size:10px;}
   .form-row{grid-template-columns:1fr;}
   .contact-form{padding:26px 22px;}
   .hero{min-height:100vh;}

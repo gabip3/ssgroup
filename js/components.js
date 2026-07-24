@@ -92,7 +92,7 @@
         <ul class="info-list">
           <li><span class="info-label">Call Us</span><a href="${PHONE_HREF}">${PHONE}</a></li>
           <li><span class="info-label">Email</span><a href="mailto:${EMAIL}">${EMAIL}</a></li>
-          <li><span class="info-label">Hours</span><span>Mon – Sat | 7AM – 6PM</span></li>
+          <li><span class="info-label">Hours</span><span>Mon - Sat | 7AM - 6PM</span></li>
           <li><span class="info-label">Licensed &amp; Insured</span><span>CSL #120109 &nbsp;|&nbsp; HIC #201338</span></li>
         </ul>
 
@@ -107,7 +107,7 @@
       <form class="contact-form reveal" id="estimateForm" novalidate>
         <!-- Web3Forms: paste your free access key from https://web3forms.com below -->
         <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-        <input type="hidden" name="subject" value="New Free Estimate Request — SS Renovations">
+        <input type="hidden" name="subject" value="New Free Estimate Request, SS Renovations">
         <input type="hidden" name="from_name" value="SS Renovations Website">
         <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="form-row">
@@ -138,7 +138,7 @@
             <option>Basement Finishing</option>
             <option>New Construction / Addition</option>
             <option>Flooring</option><option>Siding</option><option>Painting</option>
-            <option>Framing</option><option>Roofing</option><option>Carpentry</option>
+            <option>Framing</option><option>Carpentry</option>
             <option>Other</option>
           </select>
         </div>
@@ -168,7 +168,7 @@
         <div class="form-field"><label for="details">Project Details</label><textarea id="details" name="Project Details" rows="4"></textarea></div>
 
         <button type="submit" class="btn btn-primary btn-lg btn-block">GET FREE ESTIMATE</button>
-        <p class="form-success" id="formSuccess">Thanks! Your request has been prepared — confirm sending in your email app. We'll get back to you within 24 hours.</p>
+        <p class="form-success" id="formSuccess">Thanks! Your request has been prepared, confirm sending in your email app. We'll get back to you within 24 hours.</p>
       </form>
     </div>
   </section>`;
@@ -179,7 +179,7 @@
     <div class="container footer-inner">
       <div class="footer-col footer-brand">
         <img src="${prefix}assets/img/logo/logo-header.png" alt="SS Renovations Group" class="footer-logo">
-        <p>Premium home renovations built around quality — bathrooms, kitchens, basements, additions and more across Central Massachusetts.</p>
+        <p>Premium home renovations built around quality, bathrooms, kitchens, basements, additions and more across Central Massachusetts.</p>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
@@ -199,7 +199,7 @@
         <ul>
           <li><a href="${PHONE_HREF}">${PHONE}</a></li>
           <li><a href="mailto:${EMAIL}">${EMAIL}</a></li>
-          <li>Mon – Sat | 7AM – 6PM</li>
+          <li>Mon - Sat | 7AM - 6PM</li>
           <li>CSL #120109 · HIC #201338</li>
         </ul>
       </div>

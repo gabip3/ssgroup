@@ -143,7 +143,7 @@ function initSite() {
     }, { passive: true });
   }
 
-  // Contact form — Web3Forms.
+  // Contact form, Web3Forms.
   // To activate: create a free access key at https://web3forms.com and paste it
   // into the hidden "access_key" input in the form (js/components.js).
   // Until a real key is set, it falls back to opening the user's email app.
@@ -173,7 +173,7 @@ function initSite() {
           lines.push(`${k}: ${v}`);
         }
         const body = encodeURIComponent(lines.join('\n'));
-        setMsg("Thanks! Your request is ready — confirm sending in your email app. We'll reply within 24 hours.");
+        setMsg("Thanks! Your request is ready, confirm sending in your email app. We'll reply within 24 hours.");
         submitBtn.disabled = true;
         window.location.href = `mailto:info@ssrenovationsgroup.com?subject=${encodeURIComponent('Free Estimate Request')}&body=${body}`;
         return;
