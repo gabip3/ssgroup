@@ -15,7 +15,6 @@
     { key: 'siding',    label: 'Siding',    file: 'siding.html' },
     { key: 'painting',  label: 'Painting',  file: 'painting.html' },
     { key: 'framing',   label: 'Framing',   file: 'framing.html' },
-    { key: 'roofing',   label: 'Roofing',   file: 'roofing.html' },
     { key: 'carpentry', label: 'Carpentry', file: 'carpentry.html' },
   ];
 
@@ -212,8 +211,17 @@
 
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
-    <img src="" alt="" id="lightboxImg">
-  </div>`;
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+    <figure class="lb-figure">
+      <img src="" alt="" id="lightboxImg">
+      <figcaption class="lb-caption"><span id="lbTitle"></span><span id="lbCounter"></span></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>`;
 
   const put = (id, html) => { const el = document.getElementById(id); if (el) el.outerHTML = html; };
   put('site-header', headerHTML);
