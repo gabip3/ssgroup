@@ -42,6 +42,8 @@ button{font-family:inherit;cursor:pointer;}
   margin:0 0 18px;text-transform:uppercase;
 }
 .kicker.center{text-align:center;}
+/* keep the gold eyebrow gold even inside copy blocks that color their <p> */
+.about-copy p.kicker,.svc-intro-copy p.kicker,.contact-info p.kicker{color:var(--gold);}
 .section-title{
   font-weight:500;line-height:1.15;font-size:clamp(30px,4vw,52px);
   margin:0 0 18px;color:var(--white);
