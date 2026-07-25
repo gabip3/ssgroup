@@ -73,6 +73,32 @@
   .ov-card .n{font-size:26px;font-weight:700;color:var(--gold);}
   .ov-card .l{font-size:13px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;}
   .hint{font-size:13px;color:var(--text-dim);margin-top:14px;text-align:center;}
+
+  .welcome{background:linear-gradient(100deg,rgba(200,148,46,.14),rgba(200,148,46,.03));border:1px solid rgba(200,148,46,.35);border-radius:16px;padding:24px 26px;margin:22px 0;}
+  .welcome h3{margin:0 0 10px;font-size:19px;color:var(--gold-bright);font-weight:600;}
+  .welcome p{margin:0 0 12px;font-size:15px;color:var(--text);}
+  .welcome p:last-child{margin-bottom:0;}
+  .welcome .tip{background:rgba(0,0,0,.35);border-left:3px solid var(--gold);border-radius:8px;padding:12px 16px;font-size:14px;color:var(--text-dim);}
+  .welcome .tip b{color:#fff;}
+
+  /* ===== MOBILE ===== */
+  @media (max-width:600px){
+    .wrap{padding:0 16px 100px;}
+    .admin-top{padding:16px 0;gap:12px;}
+    .admin-brand img{height:44px;}
+    .admin-brand .t{font-size:15px;}
+    h1{font-size:22px;margin-top:22px;}
+    .sub{font-size:14px;}
+    .step{padding:18px 16px;border-radius:14px;}
+    .welcome{padding:20px 18px;}
+    .welcome h3{font-size:17px;}
+    .cats{gap:8px;}
+    .cat{padding:10px 14px;font-size:13px;flex:1 1 auto;text-align:center;}
+    .drop{padding:32px 16px;}
+    .previews{grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;}
+    .btn{padding:16px 20px;font-size:14px;}
+    .overview{grid-template-columns:repeat(2,1fr);}
+  }
 </style>
 </head>
 <body>
@@ -88,11 +114,18 @@
 
   <div class="demo-banner">
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-    <div><b>Versão demonstrativa.</b> Isto mostra como o Sidney adicionaria fotos. As imagens aparecem aqui como preview, mas <b>ainda não são salvas de verdade</b> — na versão final elas iriam direto para a galeria do site.</div>
+    <div><b>Versão demonstrativa.</b> Isto mostra como o Sidney adicionaria fotos. As imagens aparecem aqui como preview, mas <b>ainda não são salvas de verdade</b>, na versão final elas iriam direto para a galeria do site.</div>
+  </div>
+
+  <div class="welcome">
+    <h3>E aí, Sidney! 👋</h3>
+    <p>Seu site é a sua vitrine, e você é quem manda nela. Acabou de terminar um trabalho caprichado? Bateu umas fotos boas? Então bora colocar aqui pra todo mundo ver o seu talento!</p>
+    <p>É rapidinho, em 3 toques: escolhe a categoria, joga as fotos e publica. Prontinho, já aparece no site.</p>
+    <div class="tip">💡 <b>Dica de ouro:</b> quanto mais fotos reais dos seus projetos, mais os clientes confiam e mais orçamento cai na sua mão. Capriche na luz e, se der, mostre o antes e o depois. Bora deixar esse site brilhando! ✨</div>
   </div>
 
   <h1>Adicionar Fotos à Galeria</h1>
-  <p class="sub">Escolha a categoria, adicione as fotos do seu celular ou computador, e clique em publicar.</p>
+  <p class="sub">Escolha a categoria, adicione as fotos do seu celular ou computador, e toque em publicar.</p>
 
   <!-- STEP 1 -->
   <div class="step">
@@ -187,7 +220,7 @@
     if (!files.length) return;
     const n = files.length;
     success.innerHTML = `<b>✓ ${n} foto${n>1?'s':''} pronta${n>1?'s':''} para ${activeCat}!</b>`
-      + `<span class="demo-note">Isto é uma demonstração — nesta versão as fotos não são salvas. Na versão final, elas seriam enviadas e apareceriam na galeria "${activeCat}" do site na hora.</span>`;
+      + `<span class="demo-note">Isto é uma demonstração, nesta versão as fotos não são salvas. Na versão final, elas seriam enviadas e apareceriam na galeria "${activeCat}" do site na hora.</span>`;
     success.classList.add('show');
     files = [];
     fileInput.value = '';
