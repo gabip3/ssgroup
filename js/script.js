@@ -91,35 +91,65 @@ function initSite() {
     const step = (d) => { if (!imgs.length) return; idx = (idx + d + imgs.length) % imgs.length; render(); };
     const close = () => { lightbox.classList.remove('show'); lightboxImg.src = ''; imgs = []; };
 
-    document.querySelectorAll('.gallery-item').forEach(btn => {
-      btn.addEventListener('click', () => {
-        let list;
-        if (btn.dataset.cat && btn.dataset.count) {
-          const base = btn.dataset.base || `assets/img/gallery/${btn.dataset.cat}/`;
-          list = Array.from({ length: +btn.dataset.count }, (_, i) => `${base}${i + 1}.jpg`);
-        } else {
-          list = (btn.dataset.images || btn.dataset.full || '').split(',').map(s => s.trim()).filter(Boolean);
-        }
-        open(list, btn.dataset.title || '', 0);
+    // Cloudinary: pull client-uploaded photos per category (graceful if not configured)
+    const CLOUD = window.SSG_CLOUDINARY || {};
+    const cloudMap = {}; // cat -> { full:[], thumb:[] }
+    const cloudList = (cat) => {
+      if (!CLOUD.ready) return Promise.resolve({ full: [], thumb: [] });
+      const tag = (CLOUD.tagPrefix || 'ssg_') + cat;
+      return fetch(`https://res.cloudinary.com/${CLOUD.cloudName}/image/list/${tag}.json`)
+        .then(r => (r.ok ? r.json() : { resources: [] }))
+        .then(d => {
+          const res = (d.resources || []).sort((a, b) => (b.created_at || '').localeCompare(a.created_at || ''));
+          const url = (x, t) => `https://res.cloudinary.com/${CLOUD.cloudName}/image/upload/${t}/${x.public_id}.${x.format}`;
+          return {
+            full: res.map(x => url(x, 'w_1400,q_auto,f_auto')),
+            thumb: res.map(x => url(x, 'w_400,h_300,c_fill,q_auto,f_auto')),
+          };
+        })
+        .catch(() => ({ full: [], thumb: [] }));
+    };
+    const localFull = (cat, count, base) =>
+      Array.from({ length: count }, (_, i) => `${base || `assets/img/gallery/${cat}/`}${i + 1}.jpg`);
+
+    const wireGallery = () => {
+      // Category tiles (home / city pages)
+      document.querySelectorAll('.gallery-item').forEach(btn => {
+        btn.addEventListener('click', () => {
+          let list;
+          if (btn.dataset.cat && btn.dataset.count) {
+            list = localFull(btn.dataset.cat, +btn.dataset.count, btn.dataset.base)
+              .concat((cloudMap[btn.dataset.cat] || {}).full || []);
+          } else {
+            list = (btn.dataset.images || btn.dataset.full || '').split(',').map(s => s.trim()).filter(Boolean);
+          }
+          open(list, btn.dataset.title || '', 0);
+        });
       });
-    });
-    // Service-page work strips (thumbnails that open the carousel)
-    document.querySelectorAll('.gallery-strip').forEach(strip => {
-      const cat = strip.dataset.cat, count = +strip.dataset.count, title = strip.dataset.title || '';
-      if (!cat || !count) return;
-      const base = strip.dataset.base || `assets/img/gallery/${cat}/`;
-      const list = Array.from({ length: count }, (_, i) => `${base}${i + 1}.jpg`);
-      list.forEach((src, i) => {
-        const b = document.createElement('button');
-        b.className = 'strip-thumb';
-        b.setAttribute('aria-label', `${title} photo ${i + 1}`);
-        const im = document.createElement('img');
-        im.src = src; im.loading = 'lazy'; im.alt = `${title} project ${i + 1}`;
-        b.appendChild(im);
-        b.addEventListener('click', () => open(list, title, i));
-        strip.appendChild(b);
+      // Service-page work strips
+      document.querySelectorAll('.gallery-strip').forEach(strip => {
+        const cat = strip.dataset.cat, count = +strip.dataset.count, title = strip.dataset.title || '';
+        if (!cat || !count) return;
+        const cloud = cloudMap[cat] || { full: [], thumb: [] };
+        const full = localFull(cat, count, strip.dataset.base).concat(cloud.full);
+        const thumbs = localFull(cat, count, strip.dataset.base).concat(cloud.thumb);
+        strip.innerHTML = '';
+        thumbs.forEach((src, i) => {
+          const b = document.createElement('button');
+          b.className = 'strip-thumb';
+          b.setAttribute('aria-label', `${title} photo ${i + 1}`);
+          const im = document.createElement('img');
+          im.src = src; im.loading = 'lazy'; im.alt = `${title} project ${i + 1}`;
+          b.appendChild(im);
+          b.addEventListener('click', () => open(full, title, i));
+          strip.appendChild(b);
+        });
       });
-    });
+    };
+
+    const cats = new Set();
+    document.querySelectorAll('.gallery-item[data-cat], .gallery-strip[data-cat]').forEach(el => cats.add(el.dataset.cat));
+    Promise.all([...cats].map(c => cloudList(c).then(v => { cloudMap[c] = v; }))).then(wireGallery);
 
     const prevBtn = document.getElementById('lbPrev');
     const nextBtn = document.getElementById('lbNext');
