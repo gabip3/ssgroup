@@ -180,7 +180,7 @@
     <div class="container footer-inner">
       <div class="footer-col footer-brand">
         <img src="${prefix}assets/img/logo/logo-header.png" alt="SS Renovations Group" class="footer-logo">
-        <p>Premium home renovations built around quality, bathrooms, kitchens, basements, additions and more across Central Massachusetts.</p>
+        <p>Premium home renovations built around quality, bathrooms, kitchens, basements, additions and more across Massachusetts.</p>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
@@ -207,8 +207,8 @@
     </div>
     <div class="footer-areas">
       <div class="container">
-        <span class="footer-areas-label">Areas We Serve:</span>
-        <a href="${prefix}milford.html">Milford</a><a href="${prefix}franklin.html">Franklin</a><a href="${prefix}hopkinton.html">Hopkinton</a><a href="${prefix}medway.html">Medway</a><a href="${prefix}framingham.html">Framingham</a><a href="${prefix}natick.html">Natick</a><a href="${prefix}wellesley.html">Wellesley</a><a href="${prefix}holliston.html">Holliston</a><a href="${prefix}mendon.html">Mendon</a>
+        <span class="footer-areas-label">Serving all of Massachusetts, including:</span>
+        <a href="${prefix}milford.html">Milford</a><a href="${prefix}franklin.html">Franklin</a><a href="${prefix}hopkinton.html">Hopkinton</a><a href="${prefix}medway.html">Medway</a><a href="${prefix}framingham.html">Framingham</a><a href="${prefix}natick.html">Natick</a><a href="${prefix}wellesley.html">Wellesley</a><a href="${prefix}holliston.html">Holliston</a><a href="${prefix}mendon.html">Mendon</a><a href="${prefix}worcester.html">Worcester</a><a href="${prefix}marlborough.html">Marlborough</a><a href="${prefix}westborough.html">Westborough</a><a href="${prefix}northborough.html">Northborough</a><a href="${prefix}shrewsbury.html">Shrewsbury</a><a href="${prefix}southborough.html">Southborough</a><a href="${prefix}ashland.html">Ashland</a><a href="${prefix}bellingham.html">Bellingham</a><a href="${prefix}norfolk.html">Norfolk</a><a href="${prefix}wrentham.html">Wrentham</a><a href="${prefix}needham.html">Needham</a>
       </div>
     </div>
     <div class="footer-bottom">

@@ -200,6 +200,9 @@ button{font-family:inherit;cursor:pointer;}
 .area-link{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border:1px solid var(--line);border-radius:10px;font-weight:500;font-size:15px;color:var(--text);transition:all .25s ease;background:var(--surface);}
 .area-link:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px);}
 .area-link svg{color:var(--gold);flex-shrink:0;}
+.areas-more{text-align:center;margin-top:26px;color:var(--text-dim);font-size:15px;}
+.areas-more a{color:var(--gold);font-weight:600;}
+.areas-more a:hover{text-decoration:underline;}
 
 /* ===================== ABOUT ===================== */
 .about{background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
