@@ -15,8 +15,8 @@
       (necessário para a galeria listar as fotos enviadas)
    ============================================================ */
 window.SSG_CLOUDINARY = {
-  cloudName:    "",   // ex: "ssrenovations"
-  uploadPreset: "",   // ex: "ssg_unsigned"
+  cloudName:    "buzxabtw",   // Cloudinary cloud name
+  uploadPreset: "gezcreuj",   // unsigned upload preset
   tagPrefix:    "ssg_" // categoria vira tag: ssg_kitchens, ssg_bathrooms...
 };
 window.SSG_CLOUDINARY.ready = !!(window.SSG_CLOUDINARY.cloudName && window.SSG_CLOUDINARY.uploadPreset);
