@@ -107,7 +107,7 @@
 
       <form class="contact-form reveal" id="estimateForm" novalidate>
         <!-- Web3Forms: paste your free access key from https://web3forms.com below -->
-        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="access_key" value="cf52db5c-e2ec-4e53-af03-b4c61fbd5db9">
         <input type="hidden" name="subject" value="New Free Estimate Request, SS Renovations">
         <input type="hidden" name="from_name" value="SS Renovations Website">
         <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
