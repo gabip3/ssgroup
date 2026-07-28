@@ -65,6 +65,20 @@
   .setup li{margin-bottom:9px;}
   .setup code{background:#000;border:1px solid var(--line);border-radius:5px;padding:2px 7px;color:var(--gold);font-size:13px;}
   .setup a{color:var(--gold);font-weight:600;}
+  /* lock screen */
+  body.locked{overflow:hidden;}
+  body.locked .wrap{display:none;}
+  .lock{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;
+    background:#000;background-image:radial-gradient(1100px 420px at 50% -8%,rgba(200,148,46,.08),transparent 68%);}
+  .lock-box{width:100%;max-width:360px;text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:36px 30px;}
+  .lock-box img{height:70px;width:auto;margin-bottom:18px;}
+  .lock-box h2{margin:0 0 6px;font-size:19px;color:#fff;font-weight:600;}
+  .lock-box p{margin:0 0 22px;color:var(--text-dim);font-size:14px;}
+  .lock-box input{width:100%;padding:14px 16px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:#fff;font-family:inherit;font-size:15px;text-align:center;letter-spacing:2px;}
+  .lock-box input:focus{outline:none;border-color:var(--gold);}
+  .lock-box button{width:100%;margin-top:14px;padding:15px;border-radius:10px;border:0;background:var(--gold);color:#000;font-weight:600;font-family:inherit;font-size:15px;text-transform:uppercase;letter-spacing:.03em;cursor:pointer;transition:.2s;}
+  .lock-box button:hover{background:var(--gold-bright);}
+  .lock-err{display:none;color:#ff8a75;font-size:13px;margin-top:12px;}
   @media (max-width:600px){
     .wrap{padding:0 16px 100px;}
     .admin-brand img{height:44px;}.admin-brand .t{font-size:15px;}
@@ -74,7 +88,19 @@
   }
 </style>
 </head>
-<body>
+<body class="locked">
+
+<div class="lock" id="lockScreen">
+  <form class="lock-box" id="lockForm">
+    <img src="assets/img/logo/logo-header.png" alt="SS Renovations Group">
+    <h2>Painel de Fotos</h2>
+    <p>Área restrita. Digite a senha para continuar.</p>
+    <input type="password" id="lockPw" placeholder="Senha" autocomplete="current-password" autofocus>
+    <button type="submit">Entrar</button>
+    <div class="lock-err" id="lockErr">Senha incorreta. Tente de novo.</div>
+  </form>
+</div>
+
 <div class="wrap">
 
   <div class="admin-top">
@@ -142,6 +168,29 @@
 
 </div>
 
+<script>
+  /* Password gate (deterrent for accidental/casual access). Change the password
+     by replacing PW_HASH with the SHA-256 of your new password. */
+  (function () {
+    const PW_HASH = '4188562d6a8f918e5605eda4141a836fe3519afa8a8517df9d975f0d0f414139';
+    const KEY = 'ssg_admin_ok';
+    const lock = document.getElementById('lockScreen');
+    const form = document.getElementById('lockForm');
+    const input = document.getElementById('lockPw');
+    const err = document.getElementById('lockErr');
+    const unlock = () => { document.body.classList.remove('locked'); lock.style.display = 'none'; };
+    if (sessionStorage.getItem(KEY) === '1') unlock();
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      try {
+        const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input.value));
+        const hex = [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
+        if (hex === PW_HASH) { sessionStorage.setItem(KEY, '1'); unlock(); }
+        else { err.style.display = 'block'; input.value = ''; input.focus(); }
+      } catch (_) { err.textContent = 'Erro. Abra pelo endereço https:// do site.'; err.style.display = 'block'; }
+    });
+  })();
+</script>
 <script src="https://upload-widget.cloudinary.com/global/all.js" async></script>
 <script src="js/cloudinary-config.js?v=29"></script>
 <script>
