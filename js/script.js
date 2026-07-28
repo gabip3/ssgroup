@@ -194,12 +194,17 @@ function initSite() {
       const key = keyEl ? keyEl.value.trim() : '';
       const hasRealKey = key && !key.includes('YOUR_');
 
+      // Make sure the "Reply" button in the inbox goes straight to the customer
+      const emailEl = form.querySelector('input[name="email"]');
+      const replytoEl = form.querySelector('input[name="replyto"]');
+      if (emailEl && replytoEl) replytoEl.value = emailEl.value;
+
       // Fallback: no Web3Forms key yet → open email client with the details
       if (!hasRealKey) {
         const data = new FormData(form);
         const lines = [];
         for (const [k, v] of data.entries()) {
-          if (k === 'photos' || k === 'access_key' || k === 'subject' || k === 'from_name' || !v) continue;
+          if (k === 'photos' || k === 'access_key' || k === 'subject' || k === 'from_name' || k === 'replyto' || !v) continue;
           lines.push(`${k}: ${v}`);
         }
         const body = encodeURIComponent(lines.join('\n'));

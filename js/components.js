@@ -109,13 +109,14 @@
         <input type="hidden" name="access_key" value="cf52db5c-e2ec-4e53-af03-b4c61fbd5db9">
         <input type="hidden" name="subject" value="New Free Estimate Request, SS Renovations">
         <input type="hidden" name="from_name" value="SS Renovations Website">
+        <input type="hidden" name="replyto" id="replytoField">
         <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="form-row">
           <div class="form-field"><label for="firstName">First name*</label><input type="text" id="firstName" name="First name" required></div>
           <div class="form-field"><label for="lastName">Last name</label><input type="text" id="lastName" name="Last name"></div>
         </div>
         <div class="form-row">
-          <div class="form-field"><label for="email">Email*</label><input type="email" id="email" name="Email" required></div>
+          <div class="form-field"><label for="email">Email*</label><input type="email" id="email" name="email" required></div>
           <div class="form-field"><label for="phone">Phone*</label><input type="tel" id="phone" name="Phone" required></div>
         </div>
         <div class="form-field"><label for="city">City/Town*</label><input type="text" id="city" name="City/Town" required></div>
