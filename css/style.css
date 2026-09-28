@@ -137,12 +137,6 @@ button{font-family:inherit;cursor:pointer;}
 .scroll-cue span{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:4px;height:8px;background:var(--gold);border-radius:2px;animation:scrollDown 1.6s infinite;}
 @keyframes scrollDown{0%{opacity:1;top:8px;}70%{opacity:0;top:22px;}100%{opacity:0;top:8px;}}
 
-/* HERO STATS (animated counters) */
-.stats{display:flex;gap:34px;align-items:center;font-weight:600;font-size:16px;flex-wrap:wrap;}
-.stats .item{display:flex;gap:7px;align-items:baseline;}
-.stats .num{color:var(--gold);font-weight:700;font-size:26px;}
-.stats .item span:last-child{color:var(--white);font-weight:500;}
-
 /* ===================== LOCATION MARQUEE ===================== */
 .location-bar{width:100%;overflow:hidden;background:#ffffff;border-top:1px solid rgba(200,148,46,.18);border-bottom:1px solid rgba(200,148,46,.18);padding:20px 0;position:relative;}
 .location-track{display:flex;width:max-content;animation:scrollX 30s linear infinite;}
@@ -366,6 +360,28 @@ button{font-family:inherit;cursor:pointer;}
 .svc-nav-all{color:var(--gold);}
 .svc-nav-link:hover,.svc-nav-all:hover{color:var(--gold);}
 
+/* ===================== DECISION / EDUCATIONAL BLOCKS ===================== */
+.svc-decision{background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.decision-block{max-width:820px;margin:0 auto 56px;}
+.decision-block:last-child{margin-bottom:0;}
+.decision-block .section-title{font-size:clamp(24px,2.6vw,32px);margin-bottom:14px;}
+.decision-block p{color:var(--text-dim);font-size:15.5px;line-height:1.85;font-weight:300;margin:0;}
+.svc-links{text-align:center;margin-top:26px;color:var(--text-dim);font-size:15px;}
+.svc-links a{color:var(--gold);font-weight:600;}
+.svc-links a:hover{text-decoration:underline;}
+
+/* ===================== FAQ ===================== */
+.faq{background:var(--bg);}
+.faq-list{max-width:820px;margin:48px auto 0;display:flex;flex-direction:column;gap:14px;}
+.faq-item{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:2px 26px;transition:border-color .25s ease;}
+.faq-item[open]{border-color:var(--gold-soft);}
+.faq-item summary{cursor:pointer;padding:20px 0;font-weight:600;color:var(--white);font-size:15.5px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:"+";color:var(--gold);font-size:22px;font-weight:300;line-height:1;flex-shrink:0;transition:transform .25s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item p{margin:0 0 22px;color:var(--text-dim);font-size:14.5px;line-height:1.75;font-weight:300;}
+.faq-note{max-width:820px;margin:22px auto 0;text-align:center;color:var(--text-dim);font-size:13px;font-style:italic;}
+
 /* ===================== LIGHTBOX ===================== */
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:999;display:none;align-items:center;justify-content:center;padding:40px;}
 .lightbox.show{display:flex;}
@@ -455,8 +471,6 @@ button{font-family:inherit;cursor:pointer;}
   .trust-wrapper{grid-template-columns:repeat(2,1fr);gap:30px;padding:34px 18px;}
   .footer-inner{grid-template-columns:1fr;gap:28px;}
   .svc-nav-inner{flex-direction:column;gap:10px;}
-  .stats{gap:20px;}
-  .stats .num{font-size:22px;}
   .location-text{font-size:13px;letter-spacing:1.5px;padding-right:60px;}
 
   /* Hero: generous breathing room + kitchen visible behind text */
@@ -470,7 +484,6 @@ button{font-family:inherit;cursor:pointer;}
   .hero-actions .btn,.cta-actions .btn{width:100%;}
   .btn-lg{padding:16px 26px;font-size:14px;}
   .hero-tagline{margin-bottom:26px;font-size:14px;text-shadow:0 2px 12px rgba(0,0,0,.65);}
-  .hero .stats{margin-top:4px;}
 
   /* Footer + contact logos centered on mobile */
   .footer-brand{text-align:center;}
@@ -489,6 +502,9 @@ button{font-family:inherit;cursor:pointer;}
   /* Service Areas: clean aligned 2-column grid */
   .areas-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   .area-link{padding:14px 12px;font-size:13.5px;justify-content:center;text-align:center;}
+
+  .faq-item{padding:2px 18px;}
+  .faq-item summary{font-size:14.5px;padding:16px 0;}
 }
 @media (max-width:360px){
   .areas-grid{grid-template-columns:1fr;}

@@ -3,43 +3,6 @@ function initSite() {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Animated hero stats counters (start when scrolled into view)
-  const counters = [
-    { id: 'counter1', end: 150 },
-    { id: 'counter2', end: 10 },
-    { id: 'counter3', end: 100 },
-  ];
-  const runCounter = (id, end) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    let start = 0;
-    const step = Math.max(1, Math.round(end / 60));
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= end) { start = end; clearInterval(timer); }
-      el.textContent = start + '+';
-    }, 22);
-  };
-  const statsBlock = document.querySelector('.stats');
-  if (statsBlock) {
-    let started = false;
-    const start = () => { if (started) return; started = true; counters.forEach(c => runCounter(c.id, c.end)); };
-    const inView = () => {
-      const r = statsBlock.getBoundingClientRect();
-      return r.top < (window.innerHeight || document.documentElement.clientHeight) && r.bottom > 0;
-    };
-    if (inView()) {
-      start();
-    } else if ('IntersectionObserver' in window) {
-      const so = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) { start(); so.disconnect(); } });
-      }, { threshold: 0.2 });
-      so.observe(statsBlock);
-    } else {
-      start();
-    }
-  }
-
   // Mobile nav toggle
   const header = document.getElementById('siteHeader');
   const hamburger = document.getElementById('hamburger');
