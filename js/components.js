@@ -16,6 +16,7 @@
     { key: 'painting',  label: 'Painting',  file: 'painting.html' },
     { key: 'framing',   label: 'Framing',   file: 'framing.html' },
     { key: 'carpentry', label: 'Carpentry', file: 'carpentry.html' },
+    { key: 'adu',       label: 'ADU Construction', file: 'adu.html' },
   ];
 
   const home = prefix + 'index.html';
