@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instant Remodeling Estimate in Massachusetts | SS Renovations</title>
+<meta name="description" content="Price your bathroom, kitchen, basement or addition in about a minute. Get an instant ballpark range online, then book a free in-home visit. Call (978) 201-4112.">
+<link rel="canonical" href="https://ssrenovationsgroup.com/estimate.html">
+<meta property="og:title" content="Instant Remodeling Estimate | SS Renovations">
+<meta property="og:description" content="Price your bathroom, kitchen, basement or addition in about a minute, then book a free in-home visit.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ssrenovationsgroup.com/estimate.html">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=31">
+</head>
+<body data-page="estimate" data-prefix="">
+
+<div id="site-header"></div>
+
+<section class="section est-section" id="estimate">
+  <div class="container">
+    <nav class="crumbs est-crumbs"><a href="index.html">Home</a> <span>/</span> Instant Estimate</nav>
+    <p class="kicker center">- Instant Estimate -</p>
+    <h1 class="section-title center">What Will Your Project Cost?</h1>
+    <p class="section-lead">Bathrooms, kitchens, basements and additions. Pick your project, answer five quick questions and get a ballpark range on the spot. Then book a free in-home visit for the exact, written quote.</p>
+
+    <div class="est-tabs" role="group" aria-label="Choose your project type">
+      <button type="button" class="est-tab" data-project="bathroom" aria-pressed="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18"/><path d="M5 12v3a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4v-3"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg>
+        Bathroom
+      </button>
+      <button type="button" class="est-tab" data-project="kitchen" aria-pressed="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v6H4z"/><path d="M4 14h7v6H4z"/><path d="M13 14h7v6h-7z"/></svg>
+        Kitchen
+      </button>
+      <button type="button" class="est-tab" data-project="basement" aria-pressed="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h5v5h5v5h5v6"/><path d="M15 17l3 3 3-3"/></svg>
+        Basement
+      </button>
+      <button type="button" class="est-tab" data-project="addition" aria-pressed="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l6-5 6 5"/><path d="M5.5 9.5V19h9V9.5"/><path d="M18 13.5v7M14.5 17h7"/></svg>
+        Addition
+      </button>
+    </div>
+
+    <div class="est-grid">
+      <div class="est-card">
+        <div id="estFlow">
+          <div class="est-top">
+            <span class="est-step" id="estStepLabel">Step 1 of 5</span>
+            <span class="est-stepname" id="estStepName"></span>
+          </div>
+          <div class="est-bar" aria-hidden="true"><i id="estProgress"></i></div>
+          <div id="estStepBody"></div>
+          <div class="est-nav">
+            <button type="button" class="btn btn-outline-light" id="estBack">← Back</button>
+            <button type="button" class="btn btn-primary" id="estNext" hidden>See My Estimate →</button>
+          </div>
+        </div>
+
+        <div id="estResult" hidden>
+          <div class="est-top">
+            <span class="est-step">Your Ballpark Estimate</span>
+            <span class="est-stepname" id="estResultConfig"></span>
+          </div>
+          <div class="est-result-range" id="estResultRange"></div>
+          <p class="est-result-sub">Ballpark range for the project you just built. Your exact, written quote comes after a free in-home visit and measurements.</p>
+
+          <form class="est-lead" id="estLeadForm" novalidate>
+            <input type="hidden" name="access_key" value="cf52db5c-e2ec-4e53-af03-b4c61fbd5db9">
+            <input type="hidden" name="from_name" value="SS Renovations Website, Instant Estimate">
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+            <h2>Book My Free In-Home Visit</h2>
+            <p>We reply within 24 hours. Your estimate details are attached to your request automatically.</p>
+            <div class="form-row">
+              <div class="form-field" id="estFName"><label for="estName">Full name*</label><input type="text" id="estName" name="Name" autocomplete="name"><span class="err">Please enter your name.</span></div>
+              <div class="form-field" id="estFPhone"><label for="estPhone">Phone*</label><input type="tel" id="estPhone" name="Phone" autocomplete="tel"><span class="err">Please enter a valid phone number.</span></div>
+            </div>
+            <div class="form-row">
+              <div class="form-field"><label for="estEmail">Email</label><input type="email" id="estEmail" name="email" autocomplete="email"></div>
+              <div class="form-field" id="estFTown"><label for="estTown">City/Town*</label><input type="text" id="estTown" name="City/Town" autocomplete="address-level2"><span class="err">Please enter your town.</span></div>
+            </div>
+            <div class="form-row">
+              <div class="form-field"><label for="estTimeline">When do you want to start?</label>
+                <select id="estTimeline" name="Timeline"><option>ASAP</option><option>Within 1 Month</option><option selected>1–3 Months</option><option>3+ Months</option><option>Just Planning</option></select>
+              </div>
+              <div class="form-field"><label for="estContact">Best way to reach you</label>
+                <select id="estContact" name="Contact Method"><option>Call</option><option>Text</option><option>Email</option></select>
+              </div>
+            </div>
+            <div class="form-field"><label for="estNotes">Anything we should know? (optional)</label><textarea id="estNotes" name="Notes" rows="3"></textarea></div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Request My Exact Quote →</button>
+            <p class="form-success" id="estMsg"></p>
+          </form>
+
+          <div class="est-success" id="estSuccess" hidden>
+            <h2 id="estSuccessTitle">Thank you!</h2>
+            <p>Your request and estimate details were sent to our team. We'll get back to you within 24 hours.</p>
+            <a class="btn btn-primary" href="tel:+19782014112">Call (978) 201-4112</a>
+          </div>
+
+          <div class="est-nav">
+            <button type="button" class="btn btn-outline-light" id="estRestart">↺ Start Over</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="est-summary" aria-live="polite">
+        <h2>Your Estimate</h2>
+        <div id="estSummaryBody"></div>
+        <p class="est-fine">Ballpark only. Final price is confirmed in writing after a free in-home visit and measurements. No hidden fees; change orders always in writing before work starts.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="trust-wrapper">
+  <div class="trust-item"><div class="icon">&#10022;</div><h3>Fully Licensed</h3><p>CSL #120109</p></div>
+  <div class="trust-item"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"/></svg></div><h3>Fully Insured</h3><p>Full Coverage</p></div>
+  <div class="trust-item"><div class="icon">&#10022;</div><h3>HIC Registered</h3><p>#201338</p></div>
+  <div class="trust-item"><div class="icon">&#8962;</div><h3>Family Owned</h3><p>&amp; Operated</p></div>
+  <div class="trust-item"><div class="icon">&#9733;</div><h3>4.9-Star Rated</h3><p>Google</p></div>
+  <div class="trust-item"><div class="icon">$</div><h3>Free Estimates</h3><p>No Obligation</p></div>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/components.js?v=31"></script>
+<script src="js/script.js?v=31"></script>
+<script src="js/estimate.js?v=31"></script>
+</body>
+</html>

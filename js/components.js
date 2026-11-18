@@ -54,6 +54,7 @@
           <li><a href="${home}#gallery">GALLERY</a></li>
           <li><a href="${home}#reviews">REVIEWS</a></li>
           <li><a href="${home}#contact">CONTACT</a></li>
+          <li><a href="${prefix}estimate.html" class="nav-hot${page === 'estimate' ? ' active' : ''}">INSTANT ESTIMATE</a></li>
         </ul>
       </nav>
 
@@ -194,6 +195,7 @@
           <li><a href="${home}#gallery">Gallery</a></li>
           <li><a href="${home}#reviews">Reviews</a></li>
           <li><a href="${home}#contact">Contact</a></li>
+          <li><a href="${prefix}estimate.html">Instant Estimate</a></li>
         </ul>
       </div>
       <div class="footer-col">
