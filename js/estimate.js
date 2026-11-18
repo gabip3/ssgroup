@@ -217,6 +217,8 @@
 
   function renderSummary() {
     const body = $('estSummaryBody');
+    const live = compute();
+    $('estLive').innerHTML = live ? 'Estimated range <b>' + money(live.low) + ' – ' + money(live.high) + '</b>' : '';
     if (!state.sel[1]) {
       body.innerHTML = '<p class="est-empty">Your ballpark range builds here as you answer, every part itemized, nothing hidden.</p>';
       return;
